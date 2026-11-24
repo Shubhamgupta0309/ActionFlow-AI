@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Upload, Inbox, CheckSquare, RefreshCw } from 'lucide-react';
+import { Sparkles, Upload, Inbox, CheckSquare, RefreshCw, Mail } from 'lucide-react';
 import {
   getDashboardStats,
   getTasks,
@@ -61,6 +61,15 @@ export default function App() {
   useEffect(() => {
     loadTasks();
   }, [search, statusFilter, priorityFilter]);
+
+  useEffect(() => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('gmail_imported')) {
+    alert(`Successfully synced ${params.get('gmail_imported')} live emails from Gmail!`);
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+  loadInitialData();
+}, []);
 
   // Handle task status toggle
   const handleStatusChange = async (taskId, nextStatus) => {
@@ -128,6 +137,14 @@ export default function App() {
             >
               <Upload className="w-4 h-4 text-slate-500" />
               <span>Import JSON</span>
+            </button>
+
+            <button
+              onClick={handleConnectGmail}
+              className="flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 rounded-lg shadow-xs transition"
+            >
+              <Mail className="w-4 h-4 text-rose-500" />
+              <span>Connect Gmail</span>
             </button>
 
             <button
@@ -207,3 +224,15 @@ export default function App() {
     </div>
   );
 }
+
+const handleConnectGmail = async () => {
+  try {
+    const res = await fetch('http://localhost:8000/api/gmail/auth-url');
+    const data = await res.json();
+    if (data.auth_url) {
+      window.location.href = data.auth_url; // Redirect to Google OAuth screen
+    }
+  } catch (err) {
+    console.error('Failed to get Gmail auth URL:', err);
+  }
+};
