@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.messages import Message
 from app.schemas.messages import MessageImportPayload, RawMessageInput
+from app.services.ai_service import analyze_and_store_message
 
 router = APIRouter()
 
@@ -81,4 +82,39 @@ def get_messages(
     return {
         "total": len(messages),
         "messages": messages
+    }
+
+# Analyze a single message
+@router.post("/{message_id}/analyze")
+def analyze_single_message(message_id: str, db: Session = Depends(get_db)):
+    result = analyze_and_store_message(message_id, db)
+    if not result:
+        raise HTTPException(status_code=404, detail="Message not found")
+    return {
+        "status": "success",
+        "message_id": message_id,
+        "summary": result["message"].summary,
+        "category": result["message"].category,
+        "priority": result["message"].priority,
+        "response_required": result["message"].response_required,
+        "suggested_reply": result["message"].suggested_reply,
+        "tasks_created": result["tasks_created"]
+    }
+
+# Batch analyze all unanalyzed messages
+@router.post("/analyze-all")
+def analyze_all_messages(db: Session = Depends(get_db)):
+    unanalyzed = db.query(Message).filter(Message.is_analyzed == False).all()
+    results = []
+    for msg in unanalyzed:
+        try:
+            res = analyze_and_store_message(msg.id, db)
+            if res:
+                results.append({"id": msg.id, "status": "analyzed", "tasks": res["tasks_created"]})
+        except Exception as e:
+            results.append({"id": msg.id, "status": "failed", "error": str(e)})
+
+    return {
+        "total_processed": len(results),
+        "results": results
     }
