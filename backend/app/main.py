@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
-import app.models.message
+import app.models.messages
 import app.models.task
+from app.routers import messages
 
 # Create tables in MySQL
 Base.metadata.create_all(bind=engine)
@@ -28,3 +29,5 @@ def health_check():
         "service": "ActionFlow AI API",
         "version": "1.0.0"
     }
+
+app.include_router(messages.router, prefix="/api/messages", tags=["Messages"])
