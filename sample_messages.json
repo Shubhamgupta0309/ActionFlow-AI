@@ -1,0 +1,254 @@
+{
+  "messages": [
+    {
+      "id": "MSG001",
+      "type": "email",
+      "sender": { "name": "Rahul Sharma", "email": "rahul@example.com" },
+      "recipient": "team@actionflow.ai",
+      "subject": "Payment Gateway Integration",
+      "date": "2026-11-02T10:30:00+05:30",
+      "content": "Please complete the Stripe payment gateway integration and share the staging URL before Thursday.",
+      "attachments": []
+    },
+    {
+      "id": "MSG002",
+      "type": "email",
+      "sender": { "name": "Priya Patel", "email": "priya@clientcorp.com" },
+      "recipient": "support@actionflow.ai",
+      "subject": "CRITICAL: Production Login Outage",
+      "date": "2026-11-03T09:15:00+05:30",
+      "content": "None of our 200 agents can log into the portal. We are getting a 502 Bad Gateway error. Please resolve this immediately as our support operations are completely blocked.",
+      "attachments": []
+    },
+    {
+      "id": "MSG003",
+      "type": "email",
+      "sender": { "name": "HR Department", "email": "hr@actionflow.ai" },
+      "recipient": "all@actionflow.ai",
+      "subject": "Company Holiday Calendar 2026",
+      "date": "2026-11-03T11:00:00+05:30",
+      "content": "Dear team, please find attached the upcoming holiday schedule for the rest of the year. The office will remain closed this Friday for Diwali.",
+      "attachments": []
+    },
+    {
+      "id": "MSG004",
+      "type": "message",
+      "sender": { "name": "Vikram Malhotra", "email": "vikram@partners.io" },
+      "recipient": "business@actionflow.ai",
+      "subject": "Partnership Sync Call",
+      "date": "2026-11-04T14:00:00+05:30",
+      "content": "Can we schedule a 30-minute sync tomorrow at 3:00 PM IST to discuss the enterprise contract amendments?",
+      "attachments": []
+    },
+    {
+      "id": "MSG005",
+      "type": "email",
+      "sender": { "name": "AWS Billing Alerts", "email": "no-reply@amazon.com" },
+      "recipient": "devops@actionflow.ai",
+      "subject": "Monthly Invoice Statement",
+      "date": "2026-11-04T16:45:00+05:30",
+      "content": "Your monthly AWS invoice for the amount of $412.50 has been generated and charged automatically to your credit card ending in 4092. No action is required.",
+      "attachments": []
+    },
+    {
+      "id": "MSG006",
+      "type": "email",
+      "sender": { "name": "Ananya Sen", "email": "ananya@designstudio.com" },
+      "recipient": "frontend@actionflow.ai",
+      "subject": "Updated Figma Designs for Dashboard",
+      "date": "2026-11-05T10:00:00+05:30",
+      "content": "I have finalized the Figma design tokens and mobile view components. Please review the design changes and implement the updated dark-mode contrast by Friday 5 PM.",
+      "attachments": []
+    },
+    {
+      "id": "MSG007",
+      "type": "email",
+      "sender": { "name": "Siddharth Verma", "email": "siddharth@clientcorp.com" },
+      "recipient": "accounts@actionflow.ai",
+      "subject": "Discrepancy in Invoice #INV-8891",
+      "date": "2026-11-05T13:20:00+05:30",
+      "content": "We noticed that Invoice #INV-8891 includes an extra surcharge of $500 which was not part of our agreement. Please issue a corrected credit note before our finance closes this quarter.",
+      "attachments": []
+    },
+    {
+      "id": "MSG008",
+      "type": "message",
+      "sender": { "name": "Karan Mehra", "email": "karan@internal.ai" },
+      "recipient": "security@actionflow.ai",
+      "subject": "Security Vulnerability Report",
+      "date": "2026-11-06T08:30:00+05:30",
+      "content": "Dependabot reported a high-severity vulnerability (CVE-2026-3829) in our auth package. We need to upgrade the library and redeploy staging by end of day today.",
+      "attachments": []
+    },
+    {
+      "id": "MSG009",
+      "type": "email",
+      "sender": { "name": "Substack Weekly", "email": "newsletter@techdigest.io" },
+      "recipient": "engineering@actionflow.ai",
+      "subject": "Tech Digest #142: Future of Multi-Agent Systems",
+      "date": "2026-11-06T12:00:00+05:30",
+      "content": "Discover how agentic workflows and automated reasoning are revolutionizing enterprise productivity. Enjoy our weekly curated reads!",
+      "attachments": []
+    },
+    {
+      "id": "MSG010",
+      "type": "email",
+      "sender": { "name": "Deepak Joshi", "email": "deepak@logistics.in" },
+      "recipient": "sales@actionflow.ai",
+      "subject": "API Integration Inquiry & Quote Request",
+      "date": "2026-11-07T11:45:00+05:30",
+      "content": "We are looking to integrate ActionFlow AI into our warehouse management pipeline. Could you share API rate limits and send over a tiered pricing proposal by Monday?",
+      "attachments": []
+    },
+    {
+      "id": "MSG011",
+      "type": "message",
+      "sender": { "name": "Meera Rao", "email": "meera@internal.ai" },
+      "recipient": "team@actionflow.ai",
+      "subject": "Weekly Sprint Retrospective",
+      "date": "2026-11-08T15:00:00+05:30",
+      "content": "Friendly reminder that our sprint retro is scheduled for Monday at 10:00 AM. Please fill in your retro cards in Notion beforehand.",
+      "attachments": []
+    },
+    {
+      "id": "MSG012",
+      "type": "email",
+      "sender": { "name": "Rohan Gupta", "email": "rohan@fintechpartner.com" },
+      "recipient": "legal@actionflow.ai",
+      "subject": "NDA Countersigned Copy",
+      "date": "2026-11-09T09:30:00+05:30",
+      "content": "Attached is the countersigned Non-Disclosure Agreement for our upcoming pilot program. Everything looks good on our end. Looking forward to kick-off.",
+      "attachments": []
+    },
+    {
+      "id": "MSG013",
+      "type": "email",
+      "sender": { "name": "Neha Kapoor", "email": "neha@enterprise.org" },
+      "recipient": "support@actionflow.ai",
+      "subject": "Feature Request: Role-based permissions",
+      "date": "2026-11-09T14:10:00+05:30",
+      "content": "Our compliance team requires granular role-based access control (Admin, Manager, Read-Only). Can you confirm if this is on your Q4 product roadmap?",
+      "attachments": []
+    },
+    {
+      "id": "MSG014",
+      "type": "email",
+      "sender": { "name": "DevOps Bot", "email": "alerts@monitor.internal" },
+      "recipient": "oncall@actionflow.ai",
+      "subject": "Database CPU Utilization Normal",
+      "date": "2026-11-10T02:15:00+05:30",
+      "content": "Resolved: Database CPU usage has returned to nominal levels (22%). Automated scaling successfully throttled down extra replica instances.",
+      "attachments": []
+    },
+    {
+      "id": "MSG015",
+      "type": "email",
+      "sender": { "name": "Tanvi Sethi", "email": "tanvi@marketingpro.com" },
+      "recipient": "content@actionflow.ai",
+      "subject": "Blog Draft Review: AI in Inbox Management",
+      "date": "2026-11-10T11:00:00+05:30",
+      "content": "Here is the first draft of our launch blog post. Please provide your feedback and technical corrections before Wednesday morning so we can publish on Thursday.",
+      "attachments": []
+    },
+    {
+      "id": "MSG016",
+      "type": "message",
+      "sender": { "name": "Arjun Nair", "email": "arjun@growth.io" },
+      "recipient": "leadgen@actionflow.ai",
+      "subject": "Demo Follow-up",
+      "date": "2026-11-11T16:20:00+05:30",
+      "content": "Thanks for the demo earlier today! Our VP of Product wants to see the analytics export feature. Can you send over a 2-minute video walkthrough by tomorrow?",
+      "attachments": []
+    },
+    {
+      "id": "MSG017",
+      "type": "email",
+      "sender": { "name": "Office Facilities", "email": "admin@actionflow.ai" },
+      "recipient": "all@actionflow.ai",
+      "subject": "Scheduled Internet Maintenance on Sunday",
+      "date": "2026-11-12T17:00:00+05:30",
+      "content": "Please be advised that the main office fiber optic ISP will undergo routine maintenance this Sunday from 2 AM to 6 AM. Remote VPN access will be unaffected.",
+      "attachments": []
+    },
+    {
+      "id": "MSG018",
+      "type": "email",
+      "sender": { "name": "Suresh Singhania", "email": "suresh@investors.vc" },
+      "recipient": "founders@actionflow.ai",
+      "subject": "Monthly Investor Update Request",
+      "date": "2026-11-13T10:15:00+05:30",
+      "content": "Could you share the monthly metrics update including MRR, active users, and runway before our board check-in on November 20th?",
+      "attachments": []
+    },
+    {
+      "id": "MSG019",
+      "type": "message",
+      "sender": { "name": "Pooja Hegde", "email": "pooja@clientcorp.com" },
+      "recipient": "support@actionflow.ai",
+      "subject": "Webhook failure on Order Creation",
+      "date": "2026-11-14T11:30:00+05:30",
+      "content": "Our webhook endpoint received 500 internal server errors when receiving order creation events. Please inspect your outbound webhook logs and advise.",
+      "attachments": []
+    },
+    {
+      "id": "MSG020",
+      "type": "email",
+      "sender": { "name": "GitHub Notifications", "email": "notifications@github.com" },
+      "recipient": "team@actionflow.ai",
+      "subject": "[ActionFlow] Release v1.0.0 Published",
+      "date": "2026-11-15T09:00:00+05:30",
+      "content": "Release v1.0.0 has been published successfully by CI/CD pipeline. All changelog items have been archived.",
+      "attachments": []
+    },
+    {
+      "id": "MSG021",
+      "type": "email",
+      "sender": { "name": "Manish Tiwari", "email": "manish@vendor.com" },
+      "recipient": "procurement@actionflow.ai",
+      "subject": "Quotation for Cloud GPUs",
+      "date": "2026-11-16T13:40:00+05:30",
+      "content": "As discussed, please find our discounted quotation for the H100 GPU compute cluster. Please review and sign the purchase agreement by Friday to lock in the introductory price.",
+      "attachments": []
+    },
+    {
+      "id": "MSG022",
+      "type": "message",
+      "sender": { "name": "Kavita Reddy", "email": "kavita@customercare.in" },
+      "recipient": "support@actionflow.ai",
+      "subject": "Duplicate Billing on User #4910",
+      "date": "2026-11-17T15:10:00+05:30",
+      "content": "User #4910 was charged twice for their monthly subscription renewal. Please initiate a refund of $49 for the second charge and confirm once done.",
+      "attachments": []
+    },
+    {
+      "id": "MSG023",
+      "type": "email",
+      "sender": { "name": "Security Bot", "email": "security@alerting.io" },
+      "recipient": "admin@actionflow.ai",
+      "subject": "SSL Certificate Renewal Notice",
+      "date": "2026-11-18T08:00:00+05:30",
+      "content": "Notice: The SSL certificate for api.actionflow.ai will expire in 10 days. Ensure automated DNS challenge renewal is configured before November 28th.",
+      "attachments": []
+    },
+    {
+      "id": "MSG024",
+      "type": "email",
+      "sender": { "name": "Google Workspace", "email": "workspace-noreply@google.com" },
+      "recipient": "it@actionflow.ai",
+      "subject": "Storage quota update",
+      "date": "2026-11-19T10:00:00+05:30",
+      "content": "Your organization has used 45% of its pooled cloud storage. No action is required at this time.",
+      "attachments": []
+    },
+    {
+      "id": "MSG025",
+      "type": "email",
+      "sender": { "name": "Sameer Joshi", "email": "sameer@enterprise.org" },
+      "recipient": "sales@actionflow.ai",
+      "subject": "Contract Renewal & Legal Review",
+      "date": "2026-11-20T17:15:00+05:30",
+      "content": "Our annual enterprise contract is up for renewal next month. Please send the revised Master Services Agreement (MSA) with the updated SLA clauses before next Tuesday.",
+      "attachments": []
+    }
+  ]
+}

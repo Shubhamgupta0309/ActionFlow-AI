@@ -1,5 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.database import engine, Base
+import app.models.message
+import app.models.task
+
+# Create tables in MySQL
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="ActionFlow AI API",
@@ -7,7 +13,6 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Enable CORS so your React frontend (port 5173) can communicate with FastAPI (port 8000)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173"],
