@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Sparkles, Copy, Check, MessageSquare, ChevronRight, User } from 'lucide-react';
 
 export default function MessageSection({ messages, onAnalyzeMessage, loadingMessageId }) {
-  const [selectedMessage, setSelectedMessage] = useState(null);
+  const [selectedId, setSelectedId] = useState(null);
+const selectedMessage = messages.find((m) => m.id === selectedId) || null;
   const [copied, setCopied] = useState(false);
 
   const handleCopy = (text) => {
@@ -18,9 +19,9 @@ export default function MessageSection({ messages, onAnalyzeMessage, loadingMess
         {messages.map((msg) => (
           <div
             key={msg.id}
-            onClick={() => setSelectedMessage(msg)}
+            onClick={() => setSelectedId(msg.id)}
             className={`p-4 cursor-pointer transition hover:bg-slate-50 ${
-              selectedMessage?.id === msg.id ? 'bg-indigo-50/60 border-l-4 border-indigo-600' : ''
+              selectedId === msg.id ? 'bg-indigo-50/60 border-l-4 border-indigo-600' : ''
             }`}
           >
             <div className="flex items-center justify-between mb-1">
