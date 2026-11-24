@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
 import app.models.messages
 import app.models.task
-from app.routers import messages
+from app.routers import messages, tasks, dashboard
 
 # Create tables in MySQL
 Base.metadata.create_all(bind=engine)
@@ -30,4 +30,7 @@ def health_check():
         "version": "1.0.0"
     }
 
+
 app.include_router(messages.router, prefix="/api/messages", tags=["Messages"])
+app.include_router(tasks.router, prefix="/api/tasks", tags=["Tasks"])
+app.include_router(dashboard.router, prefix="/api/dashboard", tags=["Dashboard"])

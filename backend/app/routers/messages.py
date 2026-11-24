@@ -1,4 +1,5 @@
 import json
+import time
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.orm import Session
@@ -111,6 +112,24 @@ def analyze_all_messages(db: Session = Depends(get_db)):
             res = analyze_and_store_message(msg.id, db)
             if res:
                 results.append({"id": msg.id, "status": "analyzed", "tasks": res["tasks_created"]})
+        except Exception as e:
+            results.append({"id": msg.id, "status": "failed", "error": str(e)})
+
+    return {
+        "total_processed": len(results),
+        "results": results
+    }
+
+@router.post("/analyze-all")
+def analyze_all_messages(db: Session = Depends(get_db)):
+    unanalyzed = db.query(Message).filter(Message.is_analyzed == False).all()
+    results = []
+    for msg in unanalyzed:
+        try:
+            res = analyze_and_store_message(msg.id, db)
+            if res:
+                results.append({"id": msg.id, "status": "analyzed", "tasks": res["tasks_created"]})
+            time.sleep(2.5)  # Respect Gemini Free Tier (15 requests/minute)
         except Exception as e:
             results.append({"id": msg.id, "status": "failed", "error": str(e)})
 
