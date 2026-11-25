@@ -227,7 +227,8 @@ export default function App() {
 
 const handleConnectGmail = async () => {
   try {
-    const res = await fetch('http://localhost:8000/api/gmail/auth-url');
+    const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+const res = await fetch(`${apiBase}/gmail/auth-url`);
     const data = await res.json();
     if (data.auth_url) {
       window.location.href = data.auth_url; // Redirect to Google OAuth screen

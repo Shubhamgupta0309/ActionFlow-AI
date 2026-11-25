@@ -15,6 +15,7 @@ from app.models.messages import Message
 
 router = APIRouter()
 
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
 # Cache code verifiers in memory keyed by OAuth state
@@ -154,7 +155,7 @@ def gmail_oauth_callback(
         db.commit()
 
         # Redirect user back to the React frontend dashboard
-        return RedirectResponse(url=f"http://localhost:5173/?gmail_imported={imported_count}")
+        return RedirectResponse(url=f"{FRONTEND_URL}/?gmail_imported={imported_count}")
 
     except Exception as e:
         import traceback
