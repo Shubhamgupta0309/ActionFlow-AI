@@ -1,11 +1,13 @@
 import axios from 'axios';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
-
+let rawBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+if (!rawBase.endsWith('/api') && !rawBase.endsWith('/api/')) {
+  rawBase = rawBase.replace(/\/+$/, '') + '/api';
+}
+const API_BASE = rawBase;
 const api = axios.create({
   baseURL: API_BASE,
 });
-
 export const getDashboardStats = async () => {
   const res = await api.get('/dashboard/stats');
   return res.data;

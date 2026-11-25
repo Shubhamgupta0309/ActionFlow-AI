@@ -63,13 +63,13 @@ export default function App() {
   }, [search, statusFilter, priorityFilter]);
 
   useEffect(() => {
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('gmail_imported')) {
-    alert(`Successfully synced ${params.get('gmail_imported')} live emails from Gmail!`);
-    window.history.replaceState({}, document.title, window.location.pathname);
-  }
-  loadInitialData();
-}, []);
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('gmail_imported')) {
+      alert(`Successfully synced ${params.get('gmail_imported')} live emails from Gmail!`);
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+    loadInitialData();
+  }, []);
 
   // Handle task status toggle
   const handleStatusChange = async (taskId, nextStatus) => {
@@ -168,11 +168,10 @@ export default function App() {
         <div className="flex items-center gap-2 mb-6 border-b border-slate-200">
           <button
             onClick={() => setActiveTab('tasks')}
-            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition ${
-              activeTab === 'tasks'
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition ${activeTab === 'tasks'
                 ? 'border-indigo-600 text-indigo-600'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
-            }`}
+              }`}
           >
             <CheckSquare className="w-4 h-4" />
             <span>Tasks Management ({tasks.length})</span>
@@ -180,11 +179,10 @@ export default function App() {
 
           <button
             onClick={() => setActiveTab('messages')}
-            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition ${
-              activeTab === 'messages'
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition ${activeTab === 'messages'
                 ? 'border-indigo-600 text-indigo-600'
                 : 'border-transparent text-slate-500 hover:text-slate-800'
-            }`}
+              }`}
           >
             <Inbox className="w-4 h-4" />
             <span>Inbox & AI Insights ({messages.length})</span>
@@ -227,11 +225,14 @@ export default function App() {
 
 const handleConnectGmail = async () => {
   try {
-    const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
-const res = await fetch(`${apiBase}/gmail/auth-url`);
+    let apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+    if (!apiBase.endsWith('/api') && !apiBase.endsWith('/api/')) {
+      apiBase = apiBase.replace(/\/+$/, '') + '/api';
+    }
+    const res = await fetch(`${apiBase}/gmail/auth-url`);
     const data = await res.json();
     if (data.auth_url) {
-      window.location.href = data.auth_url; // Redirect to Google OAuth screen
+      window.location.href = data.auth_url;
     }
   } catch (err) {
     console.error('Failed to get Gmail auth URL:', err);
